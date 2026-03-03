@@ -24,4 +24,10 @@ export class TransactionsService {
       orderBy: { date: 'desc' },
     });
   }
+
+  async findAll(userId: number) {
+    return this.prisma.transaction.findMany({
+      where: { userId },
+    });
+  }
 }

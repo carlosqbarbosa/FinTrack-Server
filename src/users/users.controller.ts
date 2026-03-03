@@ -11,7 +11,7 @@ export class UsersController {
     return this.usersService.create(dto);
   }
 
-  @Get()
+  @Get() // Futuramente, aplicar um Guard aqui.
   list() {
     return this.usersService.findAll();
   }

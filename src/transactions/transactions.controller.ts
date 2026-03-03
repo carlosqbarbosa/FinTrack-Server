@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
 import { TransactionsService } from './transactions.service';
+import { RequestWithUser } from '../common/types/request-with-user';
 
 @Controller('transactions')
 @UseGuards(JwtAuthGuard)
@@ -15,8 +16,8 @@ export class TransactionsController {
   }
 
   @Get()
-  list(@Req() req: any) {
+  findAll(@Req() req: RequestWithUser) {
     const userId = req.user.userId;
-    return this.service.list(userId);
+    return this.service.findAll(userId);
   }
 }
