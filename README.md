@@ -1,34 +1,47 @@
-# FinTrack API 
-Version 0.1.0 
+# 🚀 FinTrack API (v0.1.0)
 
-Backend service for **FinTrack**, a personal finance management application.
-This API provides secure authentication and transaction management features built with a scalable and modular architecture.
+[![Version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/carlosqbarbosa/FinTrack-Server)
+[![NestJS](https://img.shields.io/badge/NestJS-Active-red)](https://nestjs.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
----
-
-##  Project Status
-
-Version 0.1.0 — Initial Release
-
-This is the first functional version of the API.
-Core authentication and transaction features are implemented.
-Additional features and improvements are planned for future releases.
+Backend API for **FinTrack**, a personal finance management system.  
+Provides secure authentication and transaction management features using a modular, scalable architecture.
 
 ---
 
-##  Tech Stack
+##  Project Overview
 
-- Node.js
-- NestJS
-- TypeScript
-- Prisma ORM
-- PostgreSQL
-- JWT Authentication
-- ESLint
+This repository contains the backend of the FinTrack application — a modern REST API built with **NestJS**, **TypeScript**, and **Prisma**.  
+It follows best practices for authentication, database modelling, and API design.
 
 ---
 
-##  Architecture Overview
+##  Features
+
+ JWT Authentication (Login / Register)  
+ Transactions CRUD  
+ Structured architecture (Modules & DTOs)  
+ Type-safe database access via Prisma  
+ Validation with class-validator  
+ ESLint configured for quality
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Role |
+|------------|------|
+| **NestJS** | Framework |
+| **TypeScript** | Language |
+| **Prisma ORM** | Database ORM |
+| **PostgreSQL** | Database |
+| **JWT** | Token Auth |
+| **ESLint** | Linting |
+
+---
+
+## 📁 Project Structure
 
 The project follows a clean and modular architecture pattern:
 
@@ -46,10 +59,10 @@ src/
 ---
 ```
 
-1.Request Flow
-2.Controller → Handles HTTP requests
-3.Service → Contains business logic
-4.Prisma → Database access layer
+1. Request Flow
+2. Controller → Handles HTTP requests
+3. Service → Contains business logic
+4. Prisma → Database access layer
 5. JWT Strategy → Authentication validation
 
 ##  Authentication
@@ -70,18 +83,21 @@ All transaction routes are protected and require a valid JWT.
 
 ##  API Endpoints (v0.1.0)
 
-Authentication
-Method	Endpoint	Description
-POST	/auth/register	Registers a new user account.
-POST	/auth/login	Authenticates a user and returns a JWT token.
+### Authentication
 
-Transactions
+| Method | Endpoint | Description |
+| :---: | :--- | :--- |
+| `POST` | `/auth/register` | Register a new user |
+| `POST` | `/auth/login` | Authenticate and return JWT |
 
-All routes below require JWT authentication via header:
-Authorization: Bearer <token>
+### Transactions (Protected)
 
-Method	Endpoint	Description
-GET	/transactions	Returns all transactions for the authenticated user.
-POST	/transactions	Creates a new transaction linked to the authenticated user.
-DELETE	/transactions/:id	Deletes a specific transaction by its ID.
+> All routes below require Authorization header.
+
+| Method | Endpoint | Description |
+| :---: | :--- | :--- |
+| `GET` | `/transactions` | List all transactions for user |
+| `POST` | `/transactions` | Create a new transaction |
+| `DELETE` | `/transactions/:id` | Delete a transaction by ID |
+
 ---
